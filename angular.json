@@ -24,7 +24,7 @@
               "src/manifest.json"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.sass"
             ],
             "scripts": []
           },
@@ -74,7 +74,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.css"
+              "src/styles.sass"
             ],
             "scripts": [],
             "assets": [
@@ -126,5 +126,10 @@
       }
     }
   },
-  "defaultProject": "haum"
+  "defaultProject": "haum",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "sass"
+    }
+  }
 }
