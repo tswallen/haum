@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Property } from '../property';
 
 @Component({
   selector: 'app-property',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./property.component.sass']
 })
 export class PropertyComponent implements OnInit {
+  @Input() property: Property;
 
   constructor() { }
 

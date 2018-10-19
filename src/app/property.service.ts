@@ -15,7 +15,7 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class PropertyService {
 
-  private propertiesUrl = 'api/properties';  // URL to web api
+  private propertiesUrl = 'http://localhost:3000/properties';
 
   constructor(
     private http: HttpClient,
