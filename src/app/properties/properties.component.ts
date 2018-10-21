@@ -14,15 +14,21 @@ export class PropertiesComponent implements OnInit {
   showFilters: boolean;
   selectedFilters: Filters;
   filterOptions = {
-    Bathrooms: [1, 2, 3],
-    Bedrooms: [1, 2, 3],
-    Parking: [1, 2, 3],
-    Price: ['<500', '1000 - 2000', '>2000']
+    bathrooms: [1, 2, 3],
+    bedrooms: [1, 2, 3],
+    parking: [1, 2, 3],
+    price: ['<500', '1000 - 2000', '>2000']
   };
 
   constructor(private propertyService: PropertyService) { }
 
   ngOnInit() {
+    this.selectedFilters = {
+      bathrooms: 1,
+      bedrooms: 2,
+      parking: 2,
+      price: '<500'
+    };
     this.getProperties();
   }
 

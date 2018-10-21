@@ -5,7 +5,7 @@
 <section class="filters-filter" *ngFor="let filter of filterOptions | keyvalue">
     <span class="filters-filter-span">{{filter.key}}</span>
     <div class="filters-filter-options">
-      <button class="filters-filter-options-button" *ngFor="let option of filter.value">{{option}}</button>
+      <button class="filters-filter-options-button" *ngFor="let option of filter.value" [class.active]="option === selectedFilters[filter.key]" (click)="selectedFilters[filter.key] = option; getProperties()">{{option}}</button>
     </div>
   </section>
 </div>
