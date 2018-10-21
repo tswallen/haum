@@ -12,7 +12,7 @@
 <!-- Properties -->
 <div class="properties" *ngIf="properties">
   <!-- Property -->
-  <div class="properties-property" *ngFor="let property of properties">
+  <div class="properties-property" *ngFor="let property of properties" routerLink="/property/{{property.id}}">
     <header class="properties-property-header">
       <section class="properties-property-header-feature">
         <span class="properties-property-header-feature-span">97%</span>
