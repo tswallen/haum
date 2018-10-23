@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Property } from './properties/property';
+import { Filters } from './properties/filters';
 // import { MessageService } from './message.service';
 
 
@@ -51,12 +52,15 @@ export class PropertyService {
     );
   }
 
-  searchProperties (term: string): Observable<Property[]> {
-    if (!term.trim()) {
-      return of([]);
-    }
-    return this.http.get<Property[]>(`${this.propertiesUrl}/?tags=${term}`).pipe(
-      tap(_ => this.log(`found properties matching "${term}"`)),
+  searchProperties (filters: Filters): Observable<Property[]> {
+    const options = filters ? {params: new HttpParams()} : {};
+
+    Object.keys(filters).forEach(filter => {
+      options.params = options.params.append(filter, filters[filter]);
+    });
+
+    return this.http.get<Property[]>(this.propertiesUrl, options).pipe(
+      tap(_ => this.log('found properties')),
       catchError(this.handleError<Property[]>('searchProperties', []))
     );
   }
