@@ -23,12 +23,7 @@ export class PropertiesComponent implements OnInit {
   constructor(private propertyService: PropertyService) { }
 
   ngOnInit() {
-    this.selectedFilters = {
-      bathrooms: 1,
-      bedrooms: 2,
-      parking: 2,
-      price: '<500'
-    };
+    this.selectedFilters = new Filters();
     this.getProperties();
   }
 
