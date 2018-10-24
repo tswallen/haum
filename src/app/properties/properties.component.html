@@ -1,6 +1,6 @@
 <section class="section">
   <!-- Search -->
-  <input type="search" placeholder="Type anything..." (focus)="showFilters = true" (focusout)="showFilters = false">
+  <input type="search" placeholder="Type anything..." (focus)="showFilters = true">
   <!-- Filters -->
   <div class="filters" *ngIf="showFilters">
     <!-- Filter -->
@@ -12,6 +12,7 @@
       </div>
     </section>
   </div>
+  <div class="close" *ngIf="showFilters" (click)="showFilters = false"></div>
 </section>
 <section class="section">
   <!-- Properties -->
