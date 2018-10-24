@@ -14,6 +14,7 @@ export class PropertiesComponent implements OnInit {
   showFilters: boolean;
   selectedFilters: Filters;
   filterOptions = {
+    location: ['Marrakech', 'Fes', 'Agadir'],
     bathrooms: [1, 2, 3],
     bedrooms: [1, 2, 3],
     parking: [1, 2, 3],
@@ -30,6 +31,20 @@ export class PropertiesComponent implements OnInit {
   getProperties(): void {
     this.propertyService.getProperties()
       .subscribe(properties => this.properties = properties);
+  }
+
+  search(): void {
+    this.propertyService.searchProperties(this.selectedFilters)
+      .subscribe(properties => this.properties = properties);
+  }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.propertyService.addProperty({ name } as Property)
+      .subscribe(property => {
+        this.properties.push(property);
+      });
   }
 
 }

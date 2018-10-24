@@ -1,4 +1,5 @@
 export class Filters {
+    location: 'marrakech' | 'fes' | 'agadir';
     bathrooms: 1 | 2 | 3;
     bedrooms: 1 | 2 | 3;
     parking: 1 | 2 | 3;

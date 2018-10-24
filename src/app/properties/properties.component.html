@@ -1,45 +1,51 @@
-<!-- Filters -->
-<button (click)="showFilters = !showFilters">Filter</button>
-<div class="filters" *ngIf="showFilters">
-  <!-- Filter -->
-<section class="filters-filter" *ngFor="let filter of filterOptions | keyvalue">
-    <span class="filters-filter-span">{{filter.key}}</span>
-    <div class="filters-filter-options">
-      <button class="filters-filter-options-button" *ngFor="let option of filter.value" [class.active]="option === selectedFilters[filter.key]" (click)="selectedFilters[filter.key] = option; getProperties()">{{option}}</button>
-    </div>
-  </section>
-</div>
-<!-- Properties -->
-<div class="properties" *ngIf="properties">
-  <!-- Property -->
-  <div class="properties-property" *ngFor="let property of properties" routerLink="/property/{{property.id}}">
-    <header class="properties-property-header">
-      <section class="properties-property-header-feature">
-        <span class="properties-property-header-feature-span">97%</span>
-      </section>
-    </header>
-    <!-- Property image -->
-    <img class="properties-property-img" src="https://via.placeholder.com/300x150" alt="">
-    <!-- Property body -->
-    <main class="properties-property-main">
-      <section class="properties-property-main-tags" *ngIf="property.tags">
-        <span class="properties-property-main-tags-tag" *ngFor="let tag of property.tags">{{tag}}</span>
-      </section>
-    </main>
-    <!-- Property footer -->
-    <footer class="properties-property-footer">
-      <section class="properties-property-footer-feature">
-        <i class="fas fa-bath properties-property-footer-feature-i"></i>
-        <span class="properties-property-footer-feature-span">{{property.price}}</span>
-      </section>
-      <section class="properties-property-footer-feature">
-        <i class="fas fa-bed properties-property-footer-feature-i"></i>
-        <span class="properties-property-footer-feature-span">{{property.price}}</span>
-      </section>
-      <section class="properties-property-footer-feature">
-        <i class="fas fa-car properties-property-footer-feature-i"></i>
-        <span class="properties-property-footer-feature-span">{{property.price}}</span>
-      </section>
-    </footer>
+<section class="section">
+  <!-- Search -->
+  <input type="search" placeholder="Type anything..." (focus)="showFilters = true" (focusout)="showFilters = false">
+  <!-- Filters -->
+  <div class="filters" *ngIf="showFilters">
+    <!-- Filter -->
+    <section class="filters-filter" *ngFor="let filter of filterOptions | keyvalue">
+      <span class="filters-filter-span">{{filter.key | titlecase}}</span>
+      <div class="filters-filter-options">
+        <button class="filters-filter-options-button" *ngFor="let option of filter.value" [class.active]="option === selectedFilters[filter.key]"
+          (click)="selectedFilters[filter.key] = option; search()">{{option}}</button>
+      </div>
+    </section>
   </div>
-</div>
+</section>
+<section class="section">
+  <!-- Properties -->
+  <div class="properties" *ngIf="properties">
+    <!-- Property -->
+    <div class="properties-property" *ngFor="let property of properties" routerLink="/property/{{property.id}}">
+      <header class="properties-property-header">
+        <section class="properties-property-header-feature">
+          <span class="properties-property-header-feature-span">97%</span>
+        </section>
+      </header>
+      <!-- Property image -->
+      <img class="properties-property-img" src="https://via.placeholder.com/300x150" alt="">
+      <!-- Property body -->
+      <main class="properties-property-main">
+        <section class="properties-property-main-tags" *ngIf="property.tags">
+          <span class="properties-property-main-tags-tag" *ngFor="let tag of property.tags">{{tag}}</span>
+        </section>
+      </main>
+      <!-- Property footer -->
+      <footer class="properties-property-footer">
+        <section class="properties-property-footer-feature">
+          <i class="fas fa-bath properties-property-footer-feature-i"></i>
+          <span class="properties-property-footer-feature-span">{{property.price}}</span>
+        </section>
+        <section class="properties-property-footer-feature">
+          <i class="fas fa-bed properties-property-footer-feature-i"></i>
+          <span class="properties-property-footer-feature-span">{{property.price}}</span>
+        </section>
+        <section class="properties-property-footer-feature">
+          <i class="fas fa-car properties-property-footer-feature-i"></i>
+          <span class="properties-property-footer-feature-span">{{property.price}}</span>
+        </section>
+      </footer>
+    </div>
+  </div>
+</section>
