@@ -46,12 +46,11 @@ export class PropertiesComponent implements OnInit {
       });
   }
 
-  focusSearch(): void {
+  focus(focus: boolean): void {
+    if (!focus) {
+      document.getElementById('search').blur();
+      return;
+    }
     document.getElementById('search').focus();
   }
-
-  unfocusSearch(): void {
-    document.getElementById('search').blur();
-  }
-
 }

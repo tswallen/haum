@@ -1,14 +1,14 @@
 <section class="section">
   <!-- Search -->
-  <input class="search-input" type="search" placeholder="Type anything..." (focus)="showFilters = true; focusSearch()" id="search" (keyup.enter)="showFilters = false; unfocusSearch()">
+  <input class="search-input" type="search" placeholder="Type anything..." (focus)="showFilters = true; focus(true)" id="search" (keyup.enter)="showFilters = false; focus(false); search()" [(ngModel)]="selectedFilters.location">
   <!-- Filters -->
-  <div class="filters" *ngIf="showFilters" (click)="focusSearch()">
+  <div class="filters" *ngIf="showFilters" (click)="focus(true)">
     <!-- Filter -->
     <section class="filters-filter" *ngFor="let filter of filterOptions | keyvalue">
       <span class="filters-filter-span">{{filter.key | titlecase}}</span>
       <div class="filters-filter-options">
         <button class="filters-filter-options-button" *ngFor="let option of filter.value" [class.active]="option === selectedFilters[filter.key]"
-          (click)="selectedFilters[filter.key] = option; search()">{{option}}</button>
+          (click)="selectedFilters[filter.key] = option">{{option}}</button>
       </div>
     </section>
   </div>
