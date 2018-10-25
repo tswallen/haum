@@ -1,8 +1,8 @@
 <section class="section">
   <!-- Search -->
-  <input type="search" placeholder="Type anything..." (focus)="showFilters = true">
+  <input class="search-input" type="search" placeholder="Type anything..." (focus)="showFilters = true; focusSearch()" id="search" (keyup.enter)="showFilters = false; unfocusSearch()">
   <!-- Filters -->
-  <div class="filters" *ngIf="showFilters">
+  <div class="filters" *ngIf="showFilters" (click)="focusSearch()">
     <!-- Filter -->
     <section class="filters-filter" *ngFor="let filter of filterOptions | keyvalue">
       <span class="filters-filter-span">{{filter.key | titlecase}}</span>

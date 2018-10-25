@@ -4,11 +4,15 @@
     align-items: center
     z-index: 2
     &-filter
-        width: calc(20% - 2em)
+        width: 100%
         &-options
             display: flex
             &-button
                 flex: 1 0 0
+
+.search
+    &-input
+        z-index: 2
 
 .properties
     display: flex
@@ -33,6 +37,7 @@
     align-items: center
     justify-content: center
     scroll-snap-align: start
+    flex-direction: column
 
 @media (min-width: 600px)
     .properties
