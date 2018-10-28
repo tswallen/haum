@@ -35,6 +35,7 @@ export class PropertiesComponent implements OnInit {
   search(): void {
     this.propertyService.searchProperties(this.selectedFilters)
       .subscribe(properties => this.properties = properties);
+    window.scrollTo({top: window.innerHeight, behavior: 'smooth'});
   }
 
   add(name: string): void {
