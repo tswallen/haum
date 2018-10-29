@@ -1,6 +1,6 @@
-<section class="section">
+<section class="page">
   <!-- Logo -->
-  <h1>Haum Morrocco</h1>
+  <!-- <h1>Haum Morrocco</h1> -->
   <!-- Search -->
   <input class="search-input" type="search" placeholder="Type anything..." (focus)="showFilters = true; focus(true)" id="search" (keyup.enter)="showFilters = false; focus(false); search()" [(ngModel)]="selectedFilters.location">
   <!-- Filters -->
@@ -16,7 +16,7 @@
   </div>
   <div class="close" *ngIf="showFilters" (click)="showFilters = false"></div>
 </section>
-<section class="section">
+<section class="page">
   <!-- Properties -->
   <div class="properties" *ngIf="properties">
     <!-- Property -->
