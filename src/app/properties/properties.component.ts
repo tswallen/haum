@@ -33,6 +33,7 @@ export class PropertiesComponent implements OnInit {
   }
 
   search(): void {
+    if (!this.selectedFilters.location) { delete this.selectedFilters.location; }
     this.propertyService.searchProperties(this.selectedFilters)
       .subscribe(properties => this.properties = properties);
     window.scrollTo({top: window.innerHeight, behavior: 'smooth'});
