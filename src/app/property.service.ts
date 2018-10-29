@@ -44,7 +44,7 @@ export class PropertyService {
       );
   }
 
-  getProperty(id: number): Observable<Property> {
+  getProperty(id: string): Observable<Property> {
     const url = `${this.propertiesUrl}/${id}`;
     return this.http.get<Property>(url).pipe(
       tap(_ => this.log(`fetched property id=${id}`)),

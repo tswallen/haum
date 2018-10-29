@@ -23,7 +23,7 @@ export class PropertyComponent implements OnInit {
   }
 
   getProperty(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
     this.propertyService.getProperty(id)
       .subscribe(property => this.property = property);
   }
