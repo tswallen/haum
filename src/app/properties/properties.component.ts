@@ -55,4 +55,8 @@ export class PropertiesComponent implements OnInit {
     }
     document.getElementById('search').focus();
   }
+
+  clear(index: string | number): void {
+    delete this.selectedFilters[index];
+  }
 }

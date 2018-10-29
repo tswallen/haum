@@ -10,7 +10,7 @@
       <span class="filters-filter-span">{{filter.key | titlecase}}</span>
       <div class="filters-filter-options">
         <button class="filters-filter-options-button" *ngFor="let option of filter.value" [class.active]="option === selectedFilters[filter.key]"
-          (click)="selectedFilters[filter.key] = option">{{option}}</button>
+          (click)="(selectedFilters[filter.key] === option) ? clear(filter.key) : selectedFilters[filter.key] = option">{{option}}</button>
       </div>
     </section>
   </div>
