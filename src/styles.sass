@@ -1,7 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans')
+
+$font-body: 'Open Sans', sans-serif
+
 .close
     height: 100%
     width: 100%
     position: absolute
     top: 0
     left: 0
+
+body
+    scroll-snap-type: mandatory
+    scroll-snap-points-y: repeat(100%)
+    scroll-snap-type: y mandatory
+    font-family: $font-body
