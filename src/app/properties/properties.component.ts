@@ -20,6 +20,8 @@ export class PropertiesComponent implements OnInit {
     price: ['<500', '1000 - 2000', '>2000']
   };
 
+  adding: boolean;
+
   constructor(private propertyService: PropertyService) { }
 
   ngOnInit() {

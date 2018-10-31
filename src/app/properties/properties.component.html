@@ -1,14 +1,14 @@
 <section class="page">
   <header class="header">
-    <button class="header-button">
-        <i class="fas fa-plus"></i>
+    <button class="header-button" (click)="adding = true">
+      <i class="fas fa-plus"></i>
     </button>
     <div class="spacer"></div>
   </header>
   <!-- Search -->
   <div class="search">
     <!-- Logo -->
-    <h1>Haum Morrocco</h1>
+    <!-- <h1>Haum Morrocco</h1> -->
     <input class="search-input" type="search" placeholder="Type anything..." (focus)="showFilters = true; focus(true)"
       id="search" (keyup.enter)="showFilters = false; focus(false); search()" [(ngModel)]="selectedFilters.location">
     <button class="search-button" (click)="showFilters = false; focus(false); search()">
@@ -26,14 +26,14 @@
       </section>
     </div>
   </div>
-  <div class="close" *ngIf="showFilters" (click)="showFilters = false"></div>
-  <footer></footer>
+  <footer class="footer"></footer>
 </section>
+<div class="close" *ngIf="showFilters" (click)="showFilters = false"></div>
 
 <section class="page">
   <header class="header">
     <button class="header-button" (click)="focus(true)">
-        <i class="fas fa-filter"></i>
+      <i class="fas fa-filter"></i>
     </button>
   </header>
   <!-- Properties -->
@@ -70,8 +70,13 @@
       </footer>
     </div>
   </div>
-  <footer></footer>
+  <footer class="footer"></footer>
 </section>
+
+<dialog class="dialog" *ngIf="adding" open>
+  <button (click)="adding = false">Close</button>
+</dialog>
+<div class="close" *ngIf="adding" (click)="showFilters = false"></div>
 
 <ng-template #noProperties>
   No results found
