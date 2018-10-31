@@ -1,23 +1,21 @@
-.filters
-    display: flex
-    flex-direction: column
-    align-items: center
-    z-index: 2
-    &-filter
-        width: 100%
-        &-options
-            display: flex
-            &-button
-                flex: 1 0 0
-
 .search
     z-index: 2
-
+    .filters
+        display: flex
+        flex-direction: column
+        align-items: center
+        &-filter
+            width: 100%
+            &-options
+                display: flex
+                &-button
+                    flex: 1 0 0
 
 .properties
     display: flex
     flex-wrap: wrap
     width: 100%
+    z-index: 2
     &-property
         margin: 1em
         width: calc(50% - 2em)
@@ -37,9 +35,16 @@
     width: 100%
     display: flex
     align-items: center
-    justify-content: center
+    justify-content: space-between
     scroll-snap-align: start
     flex-direction: column
+
+.header
+    display: flex
+    width: 100%
+    align-items: center
+    justify-content: center
+    z-index: 2
 
 @media (min-width: 600px)
     .properties

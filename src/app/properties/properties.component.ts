@@ -54,6 +54,7 @@ export class PropertiesComponent implements OnInit {
       return;
     }
     document.getElementById('search').focus();
+    window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
   clear(index: string | number): void {

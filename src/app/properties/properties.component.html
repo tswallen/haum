@@ -1,31 +1,41 @@
 <section class="page">
-  <!-- Logo -->
-  <!-- <h1>Haum Morrocco</h1> -->
+  <header class="header">
+    <button class="header-button">
+        <i class="fas fa-plus"></i>
+    </button>
+    <div class="spacer"></div>
+  </header>
   <!-- Search -->
   <div class="search">
+    <!-- Logo -->
+    <h1>Haum Morrocco</h1>
     <input class="search-input" type="search" placeholder="Type anything..." (focus)="showFilters = true; focus(true)"
       id="search" (keyup.enter)="showFilters = false; focus(false); search()" [(ngModel)]="selectedFilters.location">
     <button class="search-button" (click)="showFilters = false; focus(false); search()">
       <i class="fas fa-arrow-right"></i>
     </button>
-  </div>
-  <!-- Filters -->
-  <div class="filters" *ngIf="showFilters" (click)="focus(true)">
-    <!-- Filter -->
-    <section class="filters-filter" *ngFor="let filter of filterOptions | keyvalue">
-      <span class="filters-filter-span">{{filter.key | titlecase}}</span>
-      <div class="filters-filter-options">
-        <button class="filters-filter-options-button" *ngFor="let option of filter.value" [class.active]="option === selectedFilters[filter.key]"
-          (click)="(selectedFilters[filter.key] === option) ? clear(filter.key) : selectedFilters[filter.key] = option">{{option}}</button>
-      </div>
-    </section>
-    <input type="range" min="0" max="1000000" value="500000" step="10000" [(ngModel)]="selectedFilters.price"/>
-    {{selectedFilters.price}}
+    <!-- Filters -->
+    <div class="filters" *ngIf="showFilters" (click)="focus(true)">
+      <!-- Filter -->
+      <section class="filters-filter" *ngFor="let filter of filterOptions | keyvalue">
+        <span class="filters-filter-span">{{filter.key | titlecase}}</span>
+        <div class="filters-filter-options">
+          <button class="filters-filter-options-button" *ngFor="let option of filter.value" [class.active]="option === selectedFilters[filter.key]"
+            (click)="(selectedFilters[filter.key] === option) ? clear(filter.key) : selectedFilters[filter.key] = option">{{option}}</button>
+        </div>
+      </section>
+    </div>
   </div>
   <div class="close" *ngIf="showFilters" (click)="showFilters = false"></div>
+  <footer></footer>
 </section>
 
 <section class="page">
+  <header class="header">
+    <button class="header-button" (click)="focus(true)">
+        <i class="fas fa-filter"></i>
+    </button>
+  </header>
   <!-- Properties -->
   <div class="properties" *ngIf="properties.length; else noProperties">
     <!-- Property -->
@@ -60,6 +70,7 @@
       </footer>
     </div>
   </div>
+  <footer></footer>
 </section>
 
 <ng-template #noProperties>
