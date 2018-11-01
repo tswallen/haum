@@ -1,4 +1,31 @@
 <button (click)="goBack()"><i class="fas fa-arrow-left"></i></button>
 <div class="property" *ngIf="property">
-    {{property.id}}
+    <!-- Images -->
+    <div class="images">
+        <img id="selectedImage" class="images-img" src="{{selectedImage.url}}">
+        <section id="images" class="images-images">
+            <img class="images-images-img" *ngFor="let image of property.images" [src]="image.url">
+        </section>
+    </div>
+    <header class="property-header">
+        <summary>
+            <h1>{{property.name}}</h1>
+            <h3>{{property.location}}</h3>
+            <!-- Features -->
+            <div class="features">
+                <section class="feature" *ngFor="let feature of features | keyvalue">
+                    <i class="fas fa-{{feature.key}}"></i>
+                    <span class="feature-span">{{feature.value}}</span>
+                </section>
+            </div>
+            <!-- Tags -->
+            <div class="tags" *ngFor="let tag of property.tags">
+                <span class="tag">{{tag}}</span>
+            </div>
+        </summary>
+        <section class="property-header-actions">
+            <button>Enquire</button>
+            <button>Save</button>
+        </section>
+    </header>
 </div>

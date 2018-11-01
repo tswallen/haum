@@ -6,4 +6,11 @@ export class Property {
 
     location: any;
     tags: string[];
+
+    images: Image[];
+}
+
+export class Image {
+    url: string;
+    tags: string[];
 }
