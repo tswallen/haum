@@ -28,19 +28,18 @@ export class PropertyComponent implements OnInit {
 
   ngOnInit() {
     this.getProperty();
-    this.features = {
-      bath: 0,
-      bed: 0,
-      car: 0
-    };
   }
 
   getProperty(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.propertyService.getProperty(id)
       .subscribe(property => this.property = property)
-      .add(() => this.selectedImage = this.property.images[0]
-      );
+      .add(() => this.selectedImage = this.property.images[0])
+      .add(() => this.features = {
+                bath: this.property.bathrooms,
+                bed: this.property.bedrooms,
+                car: this.property.parking
+      });
   }
 
   goBack(): void {

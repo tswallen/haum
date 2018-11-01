@@ -8,6 +8,11 @@ export const PROPERTIES: Property[] = [
         price: 100000,
 
         location: 'Fes',
+
+        bathrooms: 2,
+        bedrooms: 1,
+        parking: 1,
+
         tags: ['Close to Schools', 'Has pool', 'Balcony'],
 
         images: [
