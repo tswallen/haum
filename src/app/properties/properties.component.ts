@@ -29,11 +29,13 @@ export class PropertiesComponent implements OnInit {
     this.getProperties();
   }
 
+  /** Subscribes to an array of properties */
   getProperties(): void {
     this.propertyService.getProperties()
       .subscribe(properties => this.properties = properties);
   }
 
+  /** Subscribes to an array of filtered properties then navigates to the results */
   search(): void {
     if (!this.selectedFilters.location) { delete this.selectedFilters.location; }
     this.propertyService.searchProperties(this.selectedFilters)
@@ -41,6 +43,9 @@ export class PropertiesComponent implements OnInit {
     window.scrollTo({top: window.innerHeight, behavior: 'smooth'});
   }
 
+  /** Adds a new property to the API then appends it to the properties list
+    @param name the name of the new property
+   */
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
@@ -50,6 +55,9 @@ export class PropertiesComponent implements OnInit {
       });
   }
 
+  /** Toggles the filters focused/unfocused
+    @param focus sets focused or unfocused
+   */
   focus(focus: boolean): void {
     if (!focus) {
       document.getElementById('search').blur();
@@ -59,6 +67,9 @@ export class PropertiesComponent implements OnInit {
     window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
+  /** Removes the desired value from the selected filters
+    @param index the index of the value to be deleted
+   */
   clear(index: string | number): void {
     delete this.selectedFilters[index];
   }

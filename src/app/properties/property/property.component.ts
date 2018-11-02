@@ -30,18 +30,20 @@ export class PropertyComponent implements OnInit {
     this.getProperty();
   }
 
+  /** Subscribes to a property */
   getProperty(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.propertyService.getProperty(id)
       .subscribe(property => this.property = property)
       .add(() => this.selectedImage = this.property.images[0])
       .add(() => this.features = {
-                bath: this.property.bathrooms,
-                bed: this.property.bedrooms,
-                car: this.property.parking
+        bath: this.property.bathrooms,
+        bed: this.property.bedrooms,
+        car: this.property.parking
       });
   }
 
+  /** Navigates to the previous page */
   goBack(): void {
     this.location.back();
   }
