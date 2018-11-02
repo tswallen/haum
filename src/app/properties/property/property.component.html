@@ -7,6 +7,7 @@
             <img class="images-images-img" *ngFor="let image of property.images" [src]="image.url">
         </section>
     </div>
+    <!-- Header -->
     <header class="property-header">
         <summary>
             <h1>{{property.name}}</h1>
@@ -18,16 +19,16 @@
                     <span class="feature-span">{{feature.value}}</span>
                 </section>
             </div>
-            <!-- Tags -->
-            <div class="tags" *ngFor="let tag of property.tags">
-                <span class="tag">{{tag}}</span>
-            </div>
         </summary>
         <section class="property-header-actions">
             <button>Enquire</button>
             <button>Save</button>
         </section>
     </header>
+    <main class="tags">
+        <!-- Tags -->
+        <span class="tag" *ngFor="let tag of property.tags">{{tag}}</span>
+    </main>
     <!-- I have decided not to have a body now.
     I believe using tags encourages more efficient 
     listings and makes leads more likely to message
