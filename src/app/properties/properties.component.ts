@@ -59,11 +59,14 @@ export class PropertiesComponent implements OnInit {
     @param focus sets focused or unfocused
    */
   focus(focus: boolean): void {
+    const search = document.getElementById('search');
     if (!focus) {
-      document.getElementById('search').blur();
+      search.setAttribute('placeholder', 'Type anything...');
+      search.blur();
       return;
     }
-    document.getElementById('search').focus();
+    search.setAttribute('placeholder', '');
+    search.focus();
     window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
