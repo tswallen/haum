@@ -40,7 +40,7 @@ export class PropertiesComponent implements OnInit {
     if (!this.selectedFilters.location) { delete this.selectedFilters.location; }
     this.propertyService.searchProperties(this.selectedFilters)
       .subscribe(properties => this.properties = properties);
-    window.scrollTo({top: window.innerHeight, behavior: 'smooth'});
+    window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
   }
 
   /** Adds a new property to the API then appends it to the properties list
@@ -67,7 +67,7 @@ export class PropertiesComponent implements OnInit {
     }
     search.setAttribute('placeholder', '');
     search.focus();
-    window.scrollTo({top: 0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   /** Removes the desired value from the selected filters

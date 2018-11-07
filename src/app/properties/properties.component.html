@@ -20,8 +20,8 @@
       <section class="filters-filter" *ngFor="let filter of filterOptions | keyvalue">
         <span class="filters-filter-span">{{filter.key | titlecase}}</span>
         <div class="filters-filter-options">
-          <button class="filters-filter-options-button" *ngFor="let option of filter.value" [class.filters-filter-options-button-active]="option === selectedFilters[filter.key]"
-            (click)="(selectedFilters[filter.key] === option) ? clear(filter.key) : selectedFilters[filter.key] = option">{{option}}</button>
+          <button class="filters-filter-options-button" *ngFor="let option of filter.value"
+            [class.filters-filter-options-button-active]="option === selectedFilters[filter.key]" (click)="(selectedFilters[filter.key] === option) ? clear(filter.key) : selectedFilters[filter.key] = option">{{option}}</button>
         </div>
       </section>
     </div>
@@ -33,7 +33,8 @@
 <section class="page">
   <header class="header">
     <section class="header-filter" (click)="focus(true)">
-      <input class="header-filter-input" type="search" *ngIf="selectedFilters.location" [(ngModel)]="selectedFilters.location" readonly>
+      <input class="header-filter-input" type="search" *ngIf="selectedFilters.location" [(ngModel)]="selectedFilters.location"
+        readonly>
       <button class="header-filter-button">
         <i class="fas fa-filter"></i>
       </button>
@@ -78,10 +79,17 @@
 </section>
 
 <dialog class="dialog" *ngIf="adding" open>
-  <p class="dialog-p">
-    To submit a listing please <a href="mailto:listings@haum.ma">email us</a>
-  </p>
-  <button class="dialog-button" (click)="adding = false">Close</button>
+  <header class="dialog-header">
+    <div class="spacer"></div>
+    <button class="dialog-header-button" (click)="adding = false">
+      <i class="fas fa-times"></i>
+    </button>
+  </header>
+  <main class="dialog-main">
+    <p class="dialog-main-p">
+      To submit a listing please <a href="mailto:listings@haum.ma">email us</a>
+    </p>
+  </main>
 </dialog>
 <div class="close" *ngIf="adding" (click)="adding = false"></div>
 
