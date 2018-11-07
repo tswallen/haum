@@ -60,18 +60,16 @@
       </main>
       <!-- Property footer -->
       <footer class="properties-property-footer">
-        <section class="properties-property-footer-feature">
-          <i class="fas fa-bath properties-property-footer-feature-i"></i>
-          <span class="properties-property-footer-feature-span">{{property.bathrooms}}</span>
+        <section class="properties-property-footer-feature" *ngFor="let feature of
+        {
+          bath: 'bathrooms',
+          bed: 'bedrooms',
+          car: 'parking'
+        } | keyvalue">
+          <i class="fas fa-{{feature.key}} properties-property-footer-feature-i"></i>
+          <span class="properties-property-footer-feature-span">{{property[feature.value]}}</span>
         </section>
-        <section class="properties-property-footer-feature">
-          <i class="fas fa-bed properties-property-footer-feature-i"></i>
-          <span class="properties-property-footer-feature-span">{{property.bedrooms}}</span>
-        </section>
-        <section class="properties-property-footer-feature">
-          <i class="fas fa-car properties-property-footer-feature-i"></i>
-          <span class="properties-property-footer-feature-span">{{property.parking}}</span>
-        </section>
+        <span class="properties-property-footer-price">{{property.price | currency}}</span>
       </footer>
     </div>
   </div>
