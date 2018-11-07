@@ -14,7 +14,7 @@ export class PropertiesComponent implements OnInit {
   showFilters: boolean;
   selectedFilters: Filters;
   filterOptions = {
-    type: ['rent', 'buy', 'invest'],
+    /* type: ['rent', 'buy', 'invest'], */
     bathrooms: [1, 2, 3],
     bedrooms: [1, 2, 3],
     parking: [1, 2, 3],
