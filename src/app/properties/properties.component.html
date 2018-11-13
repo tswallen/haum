@@ -45,11 +45,11 @@
   <div class="properties" *ngIf="properties?.length; else noProperties">
     <!-- Property -->
     <div class="properties-property" *ngFor="let property of properties" routerLink="/property/{{property.id}}">
-      <header class="properties-property-header">
+<!--       <header class="properties-property-header">
         <section class="properties-property-header-feature">
           <span class="properties-property-header-feature-span">97%</span>
         </section>
-      </header>
+      </header> -->
       <!-- Property image -->
       <img class="properties-property-img" src="https://source.unsplash.com/collection/416011/300x150" alt="">
       <!-- Property body -->
@@ -60,15 +60,17 @@
       </main>
       <!-- Property footer -->
       <footer class="properties-property-footer">
-        <section class="properties-property-footer-feature" *ngFor="let feature of
-        {
-          bath: 'bathrooms',
-          bed: 'bedrooms',
-          car: 'parking'
-        } | keyvalue">
-          <i class="fas fa-{{feature.key}} properties-property-footer-feature-i"></i>
-          <span class="properties-property-footer-feature-span">{{property[feature.value]}}</span>
-        </section>
+        <div class="properties-property-footer-features">
+            <section class="properties-property-footer-feature" *ngFor="let feature of
+            {
+              bath: 'bathrooms',
+              bed: 'bedrooms',
+              car: 'parking'
+            } | keyvalue">
+              <i class="fas fa-{{feature.key}} properties-property-footer-feature-i"></i>
+              <span class="properties-property-footer-feature-span">{{property[feature.value]}}</span>
+            </section>
+        </div>
         <span class="properties-property-footer-price">{{property.price | currency}}</span>
       </footer>
     </div>

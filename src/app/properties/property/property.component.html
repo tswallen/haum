@@ -20,7 +20,7 @@
             <!-- Features -->
             <div class="features">
                 <section class="feature" *ngFor="let feature of features | keyvalue">
-                    <i class="fas fa-{{feature.key}}"></i>
+                    <i class="fas fa-{{feature.key}} feature-i"></i>
                     <span class="feature-span">{{feature.value}}</span>
                 </section>
             </div>

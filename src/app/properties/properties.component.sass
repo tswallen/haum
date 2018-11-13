@@ -52,10 +52,20 @@ $shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23)
             width: 100%
         &-footer
             display: flex
+            justify-content: space-between
+            flex-wrap: wrap-reverse
+            &-features
+                display: flex
             &-feature
+                display: flex
+                align-items: center
                 margin: 0em 1em 0em 0em
                 &:last-of-type
                     margin: 0em
+                &-i
+                    padding: 0em .25em 0em 0em
+            &-price
+                font-weight: 700
 
 .page
     height: 100vh
@@ -107,10 +117,12 @@ $shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23)
 
 @media (min-width: 600px)
     .properties
+        width: 75%
         &-property
             width: calc(33.3% - 2em)
 
 @media (min-width: 900px)
     .properties
+        width: 75%
         &-property
             width: calc(20% - 2em)
