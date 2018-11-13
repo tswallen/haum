@@ -16,7 +16,7 @@
     <header class="property-header">
         <summary>
             <h1>{{property.name}}</h1>
-            <h3>{{property.location}}</h3>
+            <h3><i class="fas fa-map-marker-alt"></i> {{property.location}}</h3>
             <!-- Features -->
             <div class="features">
                 <section class="feature" *ngFor="let feature of features | keyvalue">
@@ -25,9 +25,10 @@
                 </section>
             </div>
         </summary>
-        <section class="property-header-actions">
-            <button>Enquire</button>
-            <button>Save</button>
+        <section class="property-header-section">
+            <h3>{{property.price | currency}}</h3>
+            <button class="property-header-section-button">Enquire</button>
+            <button class="property-header-section-button">Save</button>
         </section>
     </header>
     <main class="tags">

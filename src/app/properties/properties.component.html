@@ -42,7 +42,7 @@
 
   </header>
   <!-- Properties -->
-  <div class="properties" *ngIf="properties.length; else noProperties">
+  <div class="properties" *ngIf="properties?.length; else noProperties">
     <!-- Property -->
     <div class="properties-property" *ngFor="let property of properties" routerLink="/property/{{property.id}}">
       <header class="properties-property-header">
