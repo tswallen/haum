@@ -8,7 +8,7 @@
   <!-- Search -->
   <div class="search">
     <!-- Logo -->
-    <!-- <h1>Haum Morrocco</h1> -->
+    <h1>Haum Morrocco</h1>
     <input class="search-input" type="search" placeholder="Type anything..." (focus)="showFilters = true; focus(true)"
       id="search" (keyup.enter)="showFilters = false; focus(false); search()" [(ngModel)]="selectedFilters.location">
     <button class="search-button" (click)="showFilters = false; focus(false); search()">
