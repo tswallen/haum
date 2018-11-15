@@ -55,7 +55,7 @@
       <!-- Property body -->
       <main class="properties-property-main">
         <section class="properties-property-main-tags" *ngIf="property.tags">
-          <span class="properties-property-main-tags-tag" *ngFor="let tag of property.tags">{{tag}}</span>
+          <span class="properties-property-main-tags-tag" *ngFor="let tag of property.tags | slice:0:5">{{tag}}</span>
         </section>
       </main>
       <!-- Property footer -->

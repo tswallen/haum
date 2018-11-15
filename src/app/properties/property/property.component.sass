@@ -1,3 +1,8 @@
+$primary: rgba(5,5,255,1)
+$secondary: rgba(225,225,225,1)
+
+$shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23)
+
 .property
     width: 100%
     margin-left: auto
@@ -24,13 +29,19 @@
                     margin: 0em
                 &-i
                     padding: 0em .25em 0em 0em
-        .tags
-            display: flex
         &-section
             display: flex
             flex-direction: column
             &-button
                 display: block
+    .tags
+        display: flex
+        flex-wrap: wrap
+        .tag
+            background: $secondary
+            padding: .25em .5em
+            border-radius: 1em
+            margin: .5em
 
 .header
     display: flex
